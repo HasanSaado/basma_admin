@@ -2,17 +2,17 @@
 import React, { useEffect, useState } from "react";
 import MUIDataTable from "mui-datatables";
 
-function CustomersTable({ customers }) {
+function CustomersTable({ customers, average }) {
 
   // State
   const [ customerList, setCustomerList ] = useState([]);
-
+  
   /**
    * 
    */
   useEffect(() => {
     setCustomerList(Object.values(customers));
-  }, []);
+  }, [customers]);
 
   /**
    * 
@@ -55,20 +55,20 @@ function CustomersTable({ customers }) {
   /**
    * 
    */
-  const data = customerList;
-
-  /**
-   * 
-   */
   return (
 
     <div className="container mt-5">
       <MUIDataTable
         title={"Customers List"}
-        data={data}
+        data={customerList}
         columns={columns}
         options={options}
       />
+      <div className="my-3 text-end row">
+        <div>Last 24 hours: {average.last24}</div>
+        <div>Last month: {average.lastMonth}</div>
+        <div>Last three month: {average.lastThreeMonth}</div>
+      </div>
     </div>
   );
 }

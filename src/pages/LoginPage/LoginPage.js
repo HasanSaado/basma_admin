@@ -42,6 +42,8 @@ function LoginPage() {
     if(result.token) {
       localStorage.setItem('token', result.token)
       window.location.reload(false);
+    } else {
+      alert('Error');
     }
   }
 

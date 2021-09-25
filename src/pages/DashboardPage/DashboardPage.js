@@ -16,6 +16,7 @@ function DashboardPage() {
 
   // State
   const [ customers, setCustomers ] = useState([]);
+  const [ average, setAverage ] = useState([]);
 
   /**
    * 
@@ -24,8 +25,10 @@ function DashboardPage() {
 
     // Get all customers api call
     let allCustomers = await customersApi.getAllCustomers();
+    let getAverage = await customersApi.getAverage();
 
     setCustomers(allCustomers);
+    setAverage(getAverage);
   }, []);
 
   /**
@@ -36,6 +39,7 @@ function DashboardPage() {
       <Header />
       <CustomersTable 
         customers={customers}
+        average = {average}
       />
       <LoginGraph />
     </div>

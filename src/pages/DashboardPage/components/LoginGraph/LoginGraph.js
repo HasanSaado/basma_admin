@@ -16,13 +16,8 @@ function LoginGraph() {
   useEffect(async() => {
     let allLogins = await loginsApi.getAllLogins();
     setLogins(allLogins);
-    console.log(allLogins);
+   
   }, []);
-
-  /**
-   * 
-   */
-  const demoUrl = 'https://codesandbox.io/s/simple-line-chart-kec3v';
 
   /**
    * 
